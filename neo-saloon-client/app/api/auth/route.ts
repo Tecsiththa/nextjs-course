@@ -1,23 +1,27 @@
-
 import prisma from "@/lib/prisma";
 import { NextRequest } from "next/server";
 
-export async function POST(request : NextRequest ){
+export async function POST(request :NextRequest){
 
-    const body = await request.json();
+  const body = await request.json();
 
-    console.log(body);
+  console.log(body)
 
-    const user = await prisma.user.findFirst(
-        {
-            where : {
-                email : body.email
-            }
-        }
-    )
+  const user = await prisma.user.findFirst(
+    {
 
-    console.log(user);
+    where :
+    {
+      email : body.email
+    }
 
 
+  }
+)
 
+console.log(user)
+
+
+  
+  
 }
