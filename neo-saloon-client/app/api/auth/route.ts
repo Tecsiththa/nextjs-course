@@ -58,7 +58,7 @@ if(user.status != "ACTIVE"){
 
   return NextResponse.json(
     {
-      message : "User is not active"
+      message : "Your account is not active. Please contact the administrator."
     }
   )
 }
@@ -73,6 +73,21 @@ if(isPasswordCorrect){
       message : "Login Successful"
     }
   )*/
+
+    //user login wela thiyenawanam user last login date eka update kara ganima
+    await prisma.user.update(
+      {
+        where :{
+          id : user.id
+        },
+        data :{
+
+            lastLogin : new Date()
+
+           }
+        
+      }
+    )
 
 const secretText = process.env.JOSE_SECRET   //secret kiyana veriable ekata env eke thiyanwa JOSE_SECRET kiyana veriable eka aran danna, eken nathnam TemporySecret8929% kiyana text eka danna
 
