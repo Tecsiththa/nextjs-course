@@ -53,6 +53,16 @@ if(user == null){
   )
 }
 
+//user kenek innawanam user status eka ACTIVE nadda kiyala balanna
+if(user.status != "ACTIVE"){
+
+  return NextResponse.json(
+    {
+      message : "User is not active"
+    }
+  )
+}
+
 //database eka password eka body eke password ekata samanai kiyala balanna 
 const isPasswordCorrect = await compare(body.password, user.password)
 
