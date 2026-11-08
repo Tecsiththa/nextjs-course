@@ -49,6 +49,9 @@ if(user == null){
   return NextResponse.json(
     {
       message : "user not found"
+    },
+    {
+      status : 404 //404 kiyanne not found kiyana eka
     }
   )
 }
@@ -59,6 +62,9 @@ if(user.status != "ACTIVE"){
   return NextResponse.json(
     {
       message : "Your account is not active. Please contact the administrator."
+    },
+    {
+      status : 403 //unauthorized
     }
   )
 }
@@ -130,6 +136,9 @@ else{
   return NextResponse.json(
     {
       message : "Invalid password"
+    },
+    {
+      status : 401 //depu details waradi
     }
   )
 }
