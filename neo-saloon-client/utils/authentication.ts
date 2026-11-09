@@ -22,3 +22,24 @@ catch{
 }
 
 }
+
+
+export async function isPrivileged(request : NextRequest , privilege : String){
+
+    const user = await getUser(request)
+
+    //me request eka euwa user kenek hoya ganna bari nm , me function eka fales kiyala returen  karanna
+    if(user == null){
+        return false  
+    }
+
+    if(user.privileges.include(privilege)){
+        return true
+    }else{
+        return false
+    }
+
+    
+
+
+}
